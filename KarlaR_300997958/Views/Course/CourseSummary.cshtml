@@ -1,0 +1,35 @@
+﻿@model  Course
+    <table class="output" style="position: absolute; left: 400px; top: 50px">
+        <tr>
+            <td style="width: 110px" align="right"><label asp-for="CourseCode">Code</label></td>
+        </tr>
+        <tr>
+            <td style="width: 110px" align="right"><label asp-for="CourseName">Name</label></td>
+        </tr>
+        <tr>
+            <td style="width: 110px" align="right"><label asp-for="CourseDesc">Description</label></td>
+        </tr>
+        <tr>
+            <td style="width: 110px; position: absolute; left:3px; top:127px" align="right"><label asp-for="CourseFaculty">Faculty</label></td>
+        </tr>
+    </table>
+    <table class="input" style="position: absolute; left: 510px; top: 50px">
+        <tr>
+            <td style="width: 250px"><input disabled="@ViewBag.MDCode" asp-for="CourseCode" size="40" tabindex="1" type="text" /></td>
+        </tr>
+        <tr>
+            <td style="width: 250px"><input disabled="@ViewBag.MustDisable" asp-for="CourseName" size="40" tabindex="3" type="text" /></td>
+        </tr>
+        <tr>
+            <td style="width: 250px"><textarea disabled="@ViewBag.MustDisable" asp-for="CourseDesc" rows="3" tabindex="5" style="width: 263px"></textarea></td>
+        </tr>
+        <tr>
+            <td style="width: 250px"><input disabled="@ViewBag.MDFaculty" asp-for="CourseFaculty" size="40" tabindex="7" type="text" /></td>
+        </tr>
+    </table>
+
+    <div style="position: absolute; left: 765px; top: 220px">
+        <button class="button" asp-action="Index" asp-controller="Home" tabindex="11">
+            Home
+        </button>
+    </div>  

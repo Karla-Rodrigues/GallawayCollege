@@ -1,0 +1,65 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Assign";
+}
+<h1> Assign </h1>
+
+<form method="post" asp-action="Assign">
+
+    <div asp-validation-summary="All" class="alert" style="position: absolute; left: 52px; top: 65px">
+
+        <table class="output" style="position: absolute; left: 400px; top: 50px">
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="CourseCode">Code</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="CourseName">Name</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="CourseDesc">Description</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px; position: absolute; left:3px; top:127px" align="right"><label asp-for="CourseFaculty">Faculty</label></td>
+            </tr>
+        </table>
+        <table class="input" style="position: absolute; left: 510px; top: 50px">
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="CourseCode" size="40" tabindex="1" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="CourseName" size="40" tabindex="3" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px"><textarea disabled="disabled" asp-for="CourseDesc" rows="3" tabindex="5" style="width: 263px"></textarea></td>
+            </tr>
+            <tr>
+                <td style="width: 250px">
+                    <div class="form-group">
+                        <select class="form-control" asp-for="CourseFaculty">
+
+                            @await Component.InvokeAsync("ListFaculty")
+
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div style="position: absolute; left: 589px; top: 286px">
+        <button class="button" asp-action="Assign" asp-controller="Course" type="submit">
+            Assign
+        </button>
+        <button class="button" asp-action="Course" asp-controller="Course" type="submit" tabindex="9">
+            Cancel
+        </button>
+        <button class="button" asp-action="Index" asp-controller="Home" tabindex="11">
+            Home
+        </button>
+    </div>
+
+</form>
+
+
+

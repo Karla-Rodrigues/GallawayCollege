@@ -1,0 +1,36 @@
+﻿@model FacultyUsers
+@{
+    ViewData["Title"] = "Login";
+}
+<h1> LOGIN </h1> 
+<h4>@ViewBag.information</h4>
+
+<form method="post" asp-action="Login">
+
+    <div asp-validation-summary="All" class="alert" style="position: absolute; left: 52px; top: 65px">
+
+        <div style="position: absolute; left: 100px; top: 100px">
+
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div>
+                <label asp-for="Name"></label>
+                <div><span asp-validation-for="Name"></span></div>
+                <input asp-for="Name" tabindex="3" />
+            </div>
+
+            <div>
+                <label asp-for="Password"></label>
+                <div><span asp-validation-for="Password"></span></div>
+                <input asp-for="Password" tabindex="5" />
+            </div>
+
+            <button class="button" asp-action="Login" asp-controller="Admin" type="submit" tabindex="7">
+                LogIN
+            </button>
+
+        </div>
+
+    </div>
+
+</form>
+

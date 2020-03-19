@@ -1,0 +1,41 @@
+﻿@model Faculty
+<table class="output" style="position: absolute; left: 400px; top: 50px">
+    <tr>
+        <td style="width: 110px" align="right"><label asp-for="FacultyCode">Code</label></td>
+    </tr>
+    <tr>
+        <td style="width: 110px" align="right"><label asp-for="FacultyName">Name</label></td>
+    </tr>
+    <tr>
+        <td style="width: 110px" align="right"><label asp-for="FacultySurname">Surname</label></td>
+    </tr>
+    <tr>
+        <td style="width: 110px" align="right"><label asp-for="FacultySurname">E-Mail</label></td>
+    </tr>
+    <tr>
+        <td style="width: 110px; position: absolute; left:-27px; top:132px" align="right"><label asp-for="FacultyCourse">Course</label></td>
+    </tr>
+</table>
+<table class="input" style="position: absolute; left: 510px; top: 50px">
+    <tr>
+        <td style="width: 250px"><input disabled="@ViewBag.MDCode" asp-for="FacultyCode" size="40" tabindex="1" type="text" /></td>
+    </tr>
+    <tr>
+        <td style="width: 250px"><input disabled="@ViewBag.MustDisable" asp-for="FacultyName" size="40" tabindex="3" type="text" /></td>
+    </tr>
+    <tr>
+        <td style="width: 250px"><input disabled="@ViewBag.MustDisable" asp-for="FacultySurname" size="40" tabindex="5" type="text" /></td>
+    </tr>
+    <tr>
+        <td style="width: 250px"><input disabled="@ViewBag.MustDisable" asp-for="FacultyEMail" size="40" tabindex="7" type="text" /></td>
+    </tr>
+    <tr>
+        <td style="width: 250px"><input disabled="@ViewBag.MDCourse" asp-for="FacultyCourse" size="40" tabindex="9" type="text" /></td>
+    </tr>
+</table>
+
+<div style="position: absolute; left: 765px; top: 220px">
+    <button class="button" asp-action="Index" asp-controller="Home" type="submit" tabindex="15">
+        Home
+    </button>
+</div>

@@ -1,0 +1,81 @@
+﻿@model KarlaR_300997958.Models.Faculty
+
+@{
+    ViewData["Title"] = "Assign";
+    Layout = "~/Views/Shared/_GallawayLayout.cshtml";
+}
+<h1> Assign </h1>
+
+<form method="post" asp-action="Assign">
+
+    <div asp-validation-summary="All" class="alert" style="position: absolute; left: 52px; top: 65px">
+
+        <table class="output" style="position: absolute; left: 400px; top: 50px">
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="FacultyCode">Code</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="FacultyName">Name</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="FacultySurname">Surname</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px" align="right"><label asp-for="FacultySurname">E-Mail</label></td>
+            </tr>
+            <tr>
+                <td style="width: 110px; position: absolute; left:-27px; top:132px" align="right"><label asp-for="FacultyCourse">Course</label></td>
+            </tr>
+        </table>
+        <table class="input" style="position: absolute; left: 510px; top: 50px">
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="FacultyCode" size="40" tabindex="1" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="FacultyName" size="40" tabindex="3" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="FacultySurname" size="40" tabindex="5" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px"><input disabled="disabled" asp-for="FacultyEMail" size="40" tabindex="7" type="text" /></td>
+            </tr>
+            <tr>
+                <td style="width: 250px">
+                    <div class="form-group">
+                        <select class="form-control" asp-for="FacultyCourse">
+
+                            @await Component.InvokeAsync("ListCourse")
+
+                        </select>
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div style="position: absolute; left: 589px; top: 286px">
+
+        <input type="hidden" asp-for="FacultyCode" />
+        <input type="hidden" asp-for="FacultyName" />
+        <input type="hidden" asp-for="FacultySurname" />
+        <input type="hidden" asp-for="FacultyEMail" />
+        <input type="hidden" asp-for="FacultyCourse" />
+
+        <button class="button" asp-action="Assign" asp-controller="Faculty" type="submit">
+            Assign
+        </button>
+        <button class="button" asp-action="Faculty" asp-controller="Faculty" type="submit" tabindex="9">
+            Cancel
+        </button>
+        <button class="button" asp-action="Index" asp-controller="Home" tabindex="11">
+            Home
+        </button>
+    </div>
+
+</form>
+
+
+

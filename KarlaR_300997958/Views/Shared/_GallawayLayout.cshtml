@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<!-- Created by Karla Rodrigues - Created on May 29, 2019-->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Gallaway College</title>
+    <meta content="Faculty and Courses Management Web Design Centennial College" name="keywords" />
+    <meta content="Faculty and Courses Management * Assigment Web Design Class - Centennial College" name="description" />
+    <link rel="stylesheet" href="~/css/Style.css" asp-append-version="true" />
+</head>
+<body>
+    <!--ALLPAGE-->
+    <div id="AllPage">
+        <!--BANNER-->
+        <div id="Banner" style="position: absolute; left: -150px; top: 0px; width: 1300px; height: 50px; z-index: 1" class="auto-style1">
+            <banner>
+                <h1>Gallaway College</h1>
+                 <!--MENUBANNER-->
+                <div id="MenuBanner" style="position: absolute; left: -1px; top: 55px; width: 1300px; height: 30px; z-index: 2" class="auto-style1">
+                    <menuban>
+                        | <a asp-controller="Home" asp-action="Index">Home</a> |
+                        <a asp-controller="Faculty" asp-action="Faculty">Faculty</a> |
+                        <a asp-controller="Course" asp-action="Course">Courses</a> |
+
+                        @if (User?.Identity?.IsAuthenticated ?? false)
+                        {
+                            <a asp-controller="Admin" asp-action="Logout">LogOUT</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Admin" asp-action="Login">LogIN</a> 
+                        }
+                    </menuban>
+                </div><!-- MenuBanner-->
+                <!--CONTENT-->
+                <!-- #BeginEditable "Content" -->
+                <div id="Content" style="position: absolute; left: -1px; top: 90px; width: 1300px; height: 560px; z-index: 4" class="auto-style1">
+                    <content>
+                        @RenderBody()
+                    </content>
+                </div><!-- #EndEditable -->
+                <!-- Content-->
+</div><!-- AllPages-->
+</body>
+</html>

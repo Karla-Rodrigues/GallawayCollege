@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Course>;
+@{
+    ViewData["Title"] = "Courses";
+}
+<h1> COURSES </h1>
+
+<div class="inform" style="position: absolute; left: 52px; top: 50px">Choose the action</div>
+@if (TempData["message"] != null)
+{
+    <div class="alert" style="position: absolute; left: 52px; top: 65px"> @TempData["message"]</div>
+}
+
+@if (ViewContext.HttpContext.User.IsInRole("Admin"))
+{
+    <div style="position: absolute; left: 50px; top: 85px">
+        <form method="get" asp-controller="Course">
+            <button class="button" asp-action="CCourse" type="submit">Add Course</button>
+        </form>
+    </div>
+}
+
+<table class="table" style="position: absolute; left: 300px; top: 85px">
+    <tr class="darkRow"> <th> Code </th> <th> Name </th> <th> Faculty </th> <th> Action </th> </tr>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr class="lightRow">
+                <form method="get" asp-controller="Course">
+                    <td style="width:100px">@c.CourseCode</td>
+                    <td style="width:200px">@c.CourseName</td>
+                    <td style="width:150px">@c.CourseFaculty</td>
+                    <td>
+                        @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                        {
+                            <input type="hidden" name="courseCode" value="@c.CourseCode" />
+                            <button class="but-tab" asp-action="VCourse" type="submit">View</button>
+                            <button class="but-tab" asp-action="UCourse" type="submit">Update</button>
+                            <button class="but-tab" asp-action="DCourse" type="submit">Delete</button>
+                            <button class="but-tab" asp-action="Assign" type="submit">Assign</button>
+                        }
+                        else
+                        {
+                            @if (ViewContext.HttpContext.User.IsInRole("General"))
+                            {
+                                <input type="hidden" name="courseCode" value="@c.CourseCode" />
+                                <button class="but-tab" asp-action="VCourse" type="submit">View</button>
+                                <button class="but-tab" asp-action="Assign" type="submit">Assign</button>
+                            }
+                            else
+                            {
+                                <input type="hidden" name="courseCode" value="@c.CourseCode" />
+                                <button class="but-tab" asp-action="VCourse" type="submit">View</button>
+                            }
+                        }
+                    </td>
+                </form>
+            </tr>
+
+        }
+    </tbody>
+</table>

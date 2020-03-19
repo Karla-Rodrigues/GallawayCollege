@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Faculty>
+
+ 
+ @foreach (var x in Model)
+ {
+     <option asp-for="CourseFaculty"> @x.FacultyCode - @x.FacultySurname, @x.FacultyName </option>
+ }
+                
+    

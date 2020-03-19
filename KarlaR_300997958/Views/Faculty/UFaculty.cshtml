@@ -1,0 +1,35 @@
+﻿@model Faculty
+@{
+    ViewData["Title"] = "UFaculty";
+}
+<h1> Faculty Update </h1>
+
+<form method="post" asp-action="UFaculty">
+
+    <div asp-validation-summary="All" class="alert" style="position: absolute; left: 52px; top: 65px">
+
+        @Html.Partial("FacultySummary")
+
+    </div>
+
+    <div style="position: absolute; left: 589px; top: 286px">
+
+        <input type="hidden" asp-for="FacultyCode" />
+        <input type="hidden" asp-for="FacultyName" />
+        <input type="hidden" asp-for="FacultySurname" />
+        <input type="hidden" asp-for="FacultyEMail" />
+        <input type="hidden" asp-for="FacultyCourse" />
+
+        <button class="button" asp-action="UFaculty" asp-controller="Faculty" type="submit" tabindex="11">
+            Update
+        </button>
+        <button class="button" asp-action="Faculty" asp-controller="Faculty" type="submit" tabindex="13">
+            Cancel
+        </button>
+
+    </div>
+
+
+
+</form>
+
